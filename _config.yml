@@ -1,0 +1,16 @@
+# GitHub Pages Configuration for ViDi Wallet Documentation
+
+title: ViDi Wallet Documentation
+description: Legal documents and support resources for ViDi Wallet
+theme: jekyll-theme-cayman
+show_downloads: false
+
+# URLs
+url: https://vaibhav345.github.io
+baseurl: /ViDi-Wallet-Docs
+
+# Exclude from processing
+exclude:
+  - README.md
+  - .git
+  - .gitignore
