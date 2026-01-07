@@ -1,258 +1,364 @@
-# Legal Documents - Hosting Instructions
+# ViDi Wallet - Help & Support
 
-## 📄 Overview
-
-This folder contains the legal documents required for ViDi Wallet's App Store and Google Play Store submissions:
-
-- **PRIVACY_POLICY.md** - Privacy Policy (GDPR & CCPA compliant)
-- **TERMS_OF_SERVICE.md** - Terms of Service (subscription terms, refund policy)
+Welcome to ViDi Wallet! This guide will help you get started and make the most of your personal finance management.
 
 ---
 
-## 🚨 CRITICAL: Before Production
+## 📱 Getting Started
 
-**These documents MUST be publicly accessible via web URLs before submitting to app stores.**
+### Creating Your Account
+1. Download and open ViDi Wallet
+2. Tap "Register" on the login screen
+3. Enter your name, email, and create a secure password
+4. Verify your email address
+5. Start tracking your finances!
 
-### Required Actions:
-
-1. **Host the documents** on a publicly accessible website
-2. **Update the URLs** in the app code (see below)
-3. **Test the links** from the app settings page
-4. **Add URLs to store listings** (App Store Connect & Google Play Console)
-
----
-
-## 🌐 Hosting Options
-
-### Option 1: GitHub Pages (Free, Recommended for MVP)
-
-**Steps:**
-1. Create a new repository: `vidi-wallet-legal` (public)
-2. Add `PRIVACY_POLICY.md` and `TERMS_OF_SERVICE.md` to the repo
-3. Enable GitHub Pages in repo settings
-4. Access URLs will be:
-   - Privacy Policy: `https://your-username.github.io/vidi-wallet-legal/PRIVACY_POLICY`
-   - Terms of Service: `https://your-username.github.io/vidi-wallet-legal/TERMS_OF_SERVICE`
-
-**Pros:**
-- Free hosting
-- Easy to update (just push changes to repo)
-- Good for MVP and early production
-
-**Cons:**
-- Limited customization
-- Branded with GitHub domain
+### First Steps
+After logging in, you'll see your home dashboard with:
+- **Income/Expenses Summary**: Your financial overview
+- **Recent Transactions**: Latest activity
+- **Quick Actions**: Add transactions, view reports
 
 ---
 
-### Option 2: Custom Domain Website (Professional, Recommended for Production)
+## 💰 Managing Transactions
 
-**Steps:**
-1. Purchase domain: `vidi-wallet.com` (or similar)
-2. Set up a simple static website using:
-   - **Netlify** (free tier available, easy deployment)
-   - **Vercel** (free tier available, great for static sites)
-   - **AWS S3 + CloudFront** (scalable, professional)
-3. Upload HTML versions of the legal documents
-4. Access URLs will be:
-   - Privacy Policy: `https://vidi-wallet.com/privacy`
-   - Terms of Service: `https://vidi-wallet.com/terms`
+### Adding a Transaction
+1. Tap the **"+"** button or "Add Transaction"
+2. Choose transaction type:
+   - **Income**: Money received (salary, freelance, etc.)
+   - **Expense**: Money spent (bills, shopping, etc.)
+3. Enter:
+   - Amount
+   - Description
+   - Category
+   - Date
+4. Tap "Save"
 
-**Pros:**
-- Professional appearance
-- Full control over branding and domain
-- Better for SEO and user trust
+### Editing a Transaction
+1. Find the transaction in your list
+2. Tap on it to open details
+3. Tap the **Edit** icon
+4. Make your changes
+5. Tap "Save"
 
-**Cons:**
-- Domain registration cost (~$10-15/year)
-- Requires basic web hosting setup
-
----
-
-### Option 3: Convert to Web Pages (Recommended Approach)
-
-**Create simple HTML pages from the markdown documents:**
-
-1. Convert `PRIVACY_POLICY.md` to `privacy.html`
-2. Convert `TERMS_OF_SERVICE.md` to `terms.html`
-3. Host on any static web hosting service
-
-**Sample HTML Template:**
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ViDi Wallet - Privacy Policy</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
-        }
-        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        h2 { color: #34495e; margin-top: 30px; }
-        a { color: #3498db; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
-</head>
-<body>
-    <!-- Insert converted markdown content here -->
-</body>
-</html>
-```
-
-**Tools to Convert Markdown to HTML:**
-- Online: https://markdowntohtml.com/
-- CLI: `pandoc PRIVACY_POLICY.md -o privacy.html`
-- VS Code Extension: "Markdown Preview Enhanced"
+### Deleting a Transaction
+1. Swipe left on any transaction
+2. Tap the **Delete** button
+3. Confirm deletion
+4. **Tip**: You have 10 seconds to tap "Undo" if you change your mind!
 
 ---
 
-## 📝 Code Updates Required
+## 🏷️ Categories & Budgets
 
-After hosting the documents, update the following file:
+### Managing Categories
+1. Open the main menu
+2. Tap "Categories"
+3. You'll see pre-defined categories (Food, Transport, Entertainment, etc.)
 
-### File: `lib/presentation/pages/settings/settings_page.dart`
+### Creating Custom Categories
+1. Go to Categories
+2. Tap the **"+"** button
+3. Choose category type (Income or Expense)
+4. Enter:
+   - Category name
+   - Icon
+   - Color
+   - Monthly budget (optional)
+5. Tap "Save"
 
-**Line 772** - Privacy Policy URL:
-```dart
-const privacyPolicyUrl = 'https://vidi-wallet.com/privacy'; // Update this URL
-```
-
-**Line 809** - Terms of Service URL:
-```dart
-const termsOfServiceUrl = 'https://vidi-wallet.com/terms'; // Update this URL
-```
-
-**Replace with your actual hosted URLs.**
-
----
-
-## 🏪 App Store Requirements
-
-### iOS App Store Connect
-
-**Privacy Policy URL:**
-- Go to App Store Connect → Your App → App Information
-- Scroll to "Privacy Policy URL"
-- Enter: `https://vidi-wallet.com/privacy` (or your hosted URL)
-- This field is **REQUIRED** for app submission
-
-**Terms of Service (Optional but Recommended):**
-- Can be linked in the app description
-- Available via in-app settings (already implemented)
-
-### Google Play Console
-
-**Privacy Policy URL:**
-- Go to Google Play Console → Your App → Store Presence → Privacy Policy
-- Enter: `https://vidi-wallet.com/privacy` (or your hosted URL)
-- This field is **REQUIRED** for apps that collect personal data
-
-**Terms of Service (Optional but Recommended):**
-- Can be linked in the app description
-- Available via in-app settings (already implemented)
+### Setting Monthly Budgets
+1. Open any category
+2. Tap "Edit"
+3. Enter your monthly budget amount
+4. Save
+5. The app will track your spending against this budget
 
 ---
 
-## ✅ Pre-Launch Checklist
+## 🔄 Recurring Transactions
 
-Before submitting to app stores, verify:
+### Setting Up Recurring Transactions
+1. Open the main menu
+2. Tap "Recurring Transactions"
+3. Tap **"+"** to add new
+4. Enter transaction details:
+   - Amount
+   - Description
+   - Category
+   - Frequency (Daily, Weekly, Monthly, Yearly)
+   - Start date
+5. Save
 
-- [ ] Privacy Policy is hosted and publicly accessible
-- [ ] Terms of Service is hosted and publicly accessible
-- [ ] URLs are updated in `settings_page.dart` (lines 772, 809)
-- [ ] Links work from the app (test in Settings → Data & Privacy → Privacy Policy)
-- [ ] Links work from the app (test in Settings → About → Terms of Service)
-- [ ] Privacy Policy URL is added to App Store Connect
-- [ ] Privacy Policy URL is added to Google Play Console
-- [ ] Both documents include contact email: `support@vidi-wallet.com`
-- [ ] Privacy Policy discloses all data collection (Firebase, Stripe, etc.)
-- [ ] Terms of Service includes subscription pricing ($9.99 Basic, $19.99 Premium)
-- [ ] Both documents are dated and include last updated date
+The app will automatically create these transactions on schedule!
 
----
-
-## 📧 Contact Information in Documents
-
-**Update the following placeholder contact information before hosting:**
-
-### In PRIVACY_POLICY.md:
-- Line 14: `support@vidi-wallet.com` - Update with actual support email
-- Line 15: `https://vidi-wallet.com` - Update with actual website
-- Line 16: `[Your Business Address]` - Add your actual business address
-
-### In TERMS_OF_SERVICE.md:
-- Line 225+: Update all email addresses (support@, legal@, disputes@, refunds@)
-- Line 226: Update website URL
-- Line 227: Add your actual business address
+### Managing Recurring Transactions
+- **Edit**: Tap on any recurring transaction to modify
+- **Delete**: Swipe left and tap Delete
+- **Pause**: Edit and change the end date
 
 ---
 
-## 🔄 Updating Legal Documents
+## 💳 Credit Cards
 
-**Important:** Legal documents should be updated periodically and when:
-- Privacy practices change (new data collection, third-party services)
-- Subscription pricing changes
-- Terms and conditions change
-- Legal requirements change (new laws, regulations)
+### Adding a Credit Card
+1. Go to the Credit Cards tab
+2. Tap the **"+"** button
+3. Enter:
+   - Card name (e.g., "Chase Freedom")
+   - Card type (Visa, Mastercard, Amex)
+   - Last 4 digits
+   - Current balance
+   - Credit limit
+   - Payment due date (optional)
+   - Interest rate (optional)
+   - Minimum payment (optional)
+4. Save
 
-**Process for Updates:**
-1. Update the markdown files in this folder
-2. Convert to HTML (if using HTML hosting)
-3. Upload new versions to hosting
-4. Update "Last Updated" date in both documents
-5. Notify users of material changes (required by law)
-6. Keep old versions archived for legal compliance (7 years recommended)
+### Tracking Credit Card Usage
+The app will show you:
+- Current balance
+- Available credit
+- Credit utilization percentage
+- Days until payment due
+- Minimum payment amount
 
----
-
-## 📚 Additional Resources
-
-### GDPR Compliance:
-- https://gdpr.eu/privacy-notice/
-- https://ico.org.uk/for-organisations/guide-to-data-protection/
-
-### CCPA Compliance:
-- https://oag.ca.gov/privacy/ccpa
-- https://www.iubenda.com/en/help/5428-ccpa-compliance-guide
-
-### App Store Guidelines:
-- **Apple:** https://developer.apple.com/app-store/review/guidelines/#privacy
-- **Google:** https://play.google.com/about/privacy-security-deception/
+### Payment Reminders
+When a payment is due within 7 days, you'll see a warning banner on the card.
 
 ---
 
-## 🚨 Legal Disclaimer
+## 🔍 Search & Filter
 
-**These documents are templates and should be reviewed by a qualified attorney before publication.**
+### Searching Transactions
+1. Go to "All Transactions"
+2. Use the search bar at the top
+3. Search by:
+   - Description
+   - Category name
+   - Amount
 
-While we've made these documents comprehensive and compliant with GDPR and CCPA, they should be customized for your specific:
-- Business structure and location
-- Data collection practices
-- Subscription terms
-- Legal jurisdiction
+### Filtering Transactions
+1. Tap the **Filter** icon
+2. Choose filters:
+   - Category
+   - Transaction type (Income/Expense)
+   - Date range
+   - Amount range
+3. Apply filters to see matching transactions
 
-**Consult with a lawyer specializing in:**
-- Privacy law (GDPR, CCPA, etc.)
-- Terms of Service contracts
-- Consumer protection laws
-- Subscription business regulations
+### Sorting Transactions
+Tap the **Sort** icon to sort by:
+- Date (newest/oldest)
+- Amount (highest/lowest)
+- Description (A-Z)
 
 ---
 
-## 📞 Questions?
+## 👤 Profile & Settings
 
-If you have questions about hosting or legal documents, contact:
-- **Development Team:** [Your Email]
-- **Legal Counsel:** [Attorney Email]
+### Updating Your Profile
+1. Open the main menu
+2. Tap your name at the top
+3. Tap "Edit Profile"
+4. Update your information
+5. Save changes
+
+### Changing Your Password
+1. Go to Settings
+2. Tap "Security"
+3. Tap "Change Password"
+4. Enter current password
+5. Enter new password (minimum 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character)
+6. Confirm
+
+### Theme Settings
+1. Go to Settings
+2. Tap "Theme"
+3. Choose:
+   - **Light**: Bright, daytime theme
+   - **Dark**: Easy on the eyes at night
+   - **System**: Matches your device settings
 
 ---
 
-**Last Updated:** November 27, 2025
-**Next Review:** Before production deployment
+## 💎 Subscription Plans
+
+### Free Trial
+- 15 days of full access
+- All Basic features included
+- No credit card required to start
+
+### Basic Plan ($9.99/month or $99.99/year)
+- Manual transaction entry
+- Budget tracking
+- Spending reports
+- Category management
+- Unlimited transactions
+
+### Premium Plan (Coming Soon)
+- All Basic features
+- Bank connectivity (automatic imports)
+- Cloud sync across devices
+- Advanced analytics
+- Priority support
+
+### Managing Your Subscription
+1. Go to Settings
+2. Tap "Manage Subscription"
+3. View your current plan
+4. Upgrade, downgrade, or cancel
+5. Update payment method
+
+### Canceling Your Subscription
+1. Settings → Manage Subscription
+2. Tap "Cancel Subscription"
+3. Confirm cancellation
+4. You'll retain access until the end of your billing period
+
+---
+
+## ❓ Frequently Asked Questions
+
+### Is my data secure?
+Yes! We use:
+- Bank-level encryption for all data
+- Secure Firebase authentication
+- Local database storage (your data stays on your device)
+- No data sharing with third parties
+
+### Can I use ViDi Wallet offline?
+Yes! All core features work offline. Your data is stored locally on your device.
+
+### How do I export my data?
+Currently, data export is not available. This feature is planned for a future update.
+
+### Can I sync across multiple devices?
+Cloud sync will be available with the Premium plan (coming soon).
+
+### What happens to my data if I cancel?
+Your data remains on your device. You can continue using the free features or reactivate your subscription anytime.
+
+### How do refunds work?
+Refunds are handled according to Apple App Store and Google Play Store policies. Contact support@vidiwallet.com for assistance.
+
+### I forgot my password. What do I do?
+1. On the login screen, tap "Forgot Password?"
+2. Enter your email address
+3. Check your email for a password reset link
+4. Follow the instructions to create a new password
+
+---
+
+## 🐛 Troubleshooting
+
+### Transactions Not Showing
+1. Pull down to refresh the screen
+2. Check if filters are active
+3. Verify the transaction was saved
+4. Restart the app
+
+### Categories Not Appearing
+1. Ensure you created the category successfully
+2. Check if you're viewing the correct category type (Income vs Expense)
+3. Restart the app
+
+### Sync Issues
+1. Check your internet connection
+2. Log out and log back in
+3. Update to the latest version
+
+### App Crashes or Freezes
+1. Force close the app
+2. Restart your device
+3. Update to the latest version
+4. Contact support if the issue persists
+
+### Email Verification Not Received
+1. Check your spam/junk folder
+2. Verify you entered the correct email address
+3. Tap "Resend Verification Email"
+4. Wait a few minutes and check again
+
+---
+
+## 📧 Contact Support
+
+Need more help? We're here for you!
+
+**Email**: support@vidiwallet.com
+
+**Response Time**: We typically respond within 24-48 hours
+
+**What to Include**:
+- Your device type (iPhone, Android, etc.)
+- App version (found in Settings → About)
+- Detailed description of the issue
+- Screenshots (if applicable)
+
+---
+
+## 📱 System Requirements
+
+### iOS
+- iOS 13.0 or later
+- iPhone, iPad, or iPod touch
+
+### Android
+- Android 8.0 (API level 26) or later
+
+### Desktop
+- macOS 10.15 or later
+- Windows 10 or later
+
+---
+
+## 🔄 Updates & New Features
+
+We regularly update ViDi Wallet with:
+- Bug fixes
+- Performance improvements
+- New features
+- Security enhancements
+
+**Enable automatic updates** in your device settings to always have the latest version.
+
+---
+
+## 📜 Legal & Privacy
+
+- [Privacy Policy](https://vaibhav345.github.io/ViDi-Wallet-Docs/legal/PRIVACY_POLICY)
+- [Terms of Service](https://vaibhav345.github.io/ViDi-Wallet-Docs/legal/TERMS_OF_SERVICE)
+
+---
+
+## 💡 Tips & Best Practices
+
+### For Better Budgeting
+1. Set realistic monthly budgets for each category
+2. Review your spending weekly
+3. Categorize transactions immediately for accuracy
+
+### For Credit Card Management
+1. Enter your payment due dates
+2. Check credit utilization regularly (keep it under 30%)
+3. Set up recurring transactions for minimum payments
+
+### For Data Organization
+1. Use consistent naming for transactions
+2. Create custom categories that match your spending habits
+3. Review and clean up old recurring transactions
+
+---
+
+## 🎉 That's It!
+
+You're all set to take control of your finances with ViDi Wallet. If you have any questions or feedback, don't hesitate to reach out!
+
+Happy budgeting! 💰
+
+---
+
+*Last Updated: January 2026*
+*Version: 1.0.0*
